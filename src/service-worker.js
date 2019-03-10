@@ -1,7 +1,6 @@
 const cacheName = "v1";
 const filesToCache = [
-  '/',
-  '/pwa-play',
+  './',
   'index.html',
   'main.js',
   'main.css'
