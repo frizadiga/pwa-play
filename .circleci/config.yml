@@ -1,0 +1,33 @@
+version: 2
+jobs:
+  build:
+    branches:
+      ignore:
+        - dev
+        - gh-pages
+    docker:
+      - image: circleci/node:10
+    working_directory: ~/frizadiga.github.io
+    environment:
+      - SOURCE_BRANCH: master
+      - TARGET_BRANCH: gh-pages
+      - BUILD_FOLDER: build
+    steps: 
+      - checkout
+      - restore_cache:
+          keys: 
+            - v1-deps-{{ checksum "package.json" }}
+            - v1-deps-
+      - run: 
+          name: Install Dependencies
+          command: npm install
+      - save_cache:
+          paths:
+          - node_modules
+          key: v1-deps-{{ checksum "package.json" }}
+      - run:
+          name: Run Test
+          command: npm test
+      - deploy:
+          name: Deploy
+          command: bash ./.circleci/deploy.sh
