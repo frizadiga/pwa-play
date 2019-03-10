@@ -1,0 +1,15 @@
+{
+  "name": "pwa-play",
+  "version": "1.0.0",
+  "description": "proggressive web app playground",
+  "main": "index.js",
+  "scripts": {
+    "dev": "live-server ./src --port=3000",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "live-server": "^1.2.1"
+  }
+}
