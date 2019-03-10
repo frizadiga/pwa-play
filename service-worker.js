@@ -1,5 +1,6 @@
 const cacheName = "v1";
 const filesToCache = [
+  '/',
   'index.html',
   'main.js',
   'main.css'
