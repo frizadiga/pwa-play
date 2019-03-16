@@ -9,8 +9,25 @@ const registerServiceWorker = async () => {
   }
 }
 
-const app = () => {
-  registerServiceWorker();
+const insertImageList = () => {
+  const imageList = document.getElementById('image-list');
+  const fragment = document.createDocumentFragment();
+
+  for (let i = 0; i < 3; i++) {
+    console.log('loop', i)
+    const image = document.createElement('img');
+
+    image.src = 'https://via.placeholder.com/200x300?text=PWA';
+    fragment.appendChild(image);
+  }
+
+  imageList.appendChild(fragment);
 };
 
-app();
+const main = () => {
+  console.log('main() invoked!')
+  registerServiceWorker();
+  insertImageList();
+};
+
+window.addEventListener('load', () => { main(); });
