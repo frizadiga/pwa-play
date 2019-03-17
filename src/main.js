@@ -17,7 +17,7 @@ const insertImageList = () => {
     console.log('loop', i)
     const image = document.createElement('img');
 
-    image.src = 'https://via.placeholder.com/200x300?text=PWA';
+    image.src = `https://via.placeholder.com/200x300?text=${i + 1}`;
     fragment.appendChild(image);
   }
 
