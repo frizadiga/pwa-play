@@ -8,4 +8,21 @@ html, body {
   display: block;
   color: #333;
   padding: 1rem;
+  margin: auto;
+  max-width: 480px;
+}
+
+#image-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 1rem;
+}
+
+img {
+  width: 100%;
+}
+
+.page-title {
+  font-weight: bold;
+  text-transform: uppercase;
 }

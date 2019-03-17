@@ -1,4 +1,4 @@
-const cacheName = "v1";
+const cacheName = "v2";
 const filesToCache = [
   './',
   'index.html',
@@ -22,6 +22,20 @@ const handleInstall = (event) => {
 
 const handleActivate = (event) => {
   console.log('Service Worker: Activated :D');
+  
+  const deleteOldCaches = async () => {
+    const keyList = await caches.keys();
+
+    return Promise.all(keyList.map((key) => {
+      if (key !== cacheName) {
+        console.log('[ServiceWorker] Removing old cache', key);
+        return caches.delete(key);
+      }
+    }));
+  };
+  
+  event.waitUntil(deleteOldCaches());
+  return self.clients.claim();
 };
 
 const handleFetch = (event) => {

@@ -1,8 +1,8 @@
 const registerServiceWorker = async () => {
   if ('serviceWorker' in navigator) {
     try {
-      await navigator.serviceWorker.register('./service-worker.js');
-      console.log('Service Worker: Registered!');
+      const reg = await navigator.serviceWorker.register('./service-worker.js');
+      console.log('Service Worker: Registered!', reg);
     } catch(error) {
       console.log(`Service Worker: Register error ${error}`);
     }
@@ -17,7 +17,7 @@ const insertImageList = () => {
     console.log('loop', i)
     const image = document.createElement('img');
 
-    image.src = `https://via.placeholder.com/200x300?text=${i + 1}`;
+    image.src = `https://via.placeholder.com/300x300?text=${i + 1}`;
     fragment.appendChild(image);
   }
 
